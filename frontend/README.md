@@ -1,70 +1,109 @@
-# Getting Started with Create React App
+# 🎨 Cartoonifier App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A full-stack AI-powered web application that cartoonifies images, videos, and live webcam streams using OpenCV, Flask, and React.
 
-## Available Scripts
+## 🌟 Features
 
-In the project directory, you can run:
+- 🖼️ Upload an image and get a cartoon version
+- 📹 Upload a video and convert it into a cartoonified version
+- 📷 Use your webcam to view real-time cartoon effects
+- ⚙️ Built with:
+  - Python, Flask, OpenCV (Backend)
+  - React, TailwindCSS, Axios (Frontend)
+  - Flask-CORS for cross-origin requests
 
-### `npm start`
+---
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## 🚀 Live Demo
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Frontend: [https://your-frontend.vercel.app](https://your-frontend.vercel.app)  
+Backend API: [https://your-backend.vercel.app](https://your-backend.vercel.app)
 
-### `npm test`
+---
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 🛠️ Local Setup Instructions
 
-### `npm run build`
+### 1. Clone the Repository
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```bash
+git clone https://github.com/yourusername/cartoonify-project.git
+cd cartoonify-project
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### 2. Set Up the Conda Environment (Backend)
 
-### `npm run eject`
+Make sure you have [Miniconda](https://docs.conda.io/en/latest/miniconda.html) installed.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```bash
+conda create -n cartoonify python=3.10
+conda activate cartoonify
+conda install -c conda-forge opencv numpy flask
+pip install flask-cors
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Then run the backend server:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```bash
+cd backend
+python app.py
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Your Flask server will run at `http://localhost:5000`
 
-## Learn More
+---
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### 3. Set Up the React Frontend
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```bash
+cd ../frontend
+npm install
+npm start
+```
 
-### Code Splitting
+The React app will start at `http://localhost:3000`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+---
 
-### Analyzing the Bundle Size
+## 🧠 Architecture Overview
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+- `/backend/app.py`: Main Flask application exposing three endpoints:
+  - `/process-image` – image cartoonification
+  - `/process-video` – video cartoonification
+  - `/webcam-feed` – real-time webcam streaming via SSE
 
-### Making a Progressive Web App
+- `/frontend/`: React app with modular components for each mode (Image, Video, Webcam)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+- `tailwindcss` used for rapid styling and responsiveness
 
-### Advanced Configuration
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## 📦 Deployment
 
-### Deployment
+### Frontend (React)
+Deployed using **Vercel** – optimized for static frontend hosting.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+### Backend (Flask)
+Deployed as a serverless function using Vercel's Python runtime.
 
-### `npm run build` fails to minify
+Ensure API URLs in `frontend/src/api.js` point to your deployed backend URL.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+---
+
+## ⚠️ Troubleshooting
+
+- **Webcam not working?**
+  - Make sure your browser has permission.
+  - Only works in secure (https) contexts.
+
+- **CORS errors?**
+  - Ensure Flask-CORS is properly installed and configured.
+
+
+
+
+## 🙌 Acknowledgements
+
+- Built with ❤️ by [Your Name](https://github.com/jagannathsaha-4)
+- Powered by OpenCV, Flask, React, Tailwind CSS
