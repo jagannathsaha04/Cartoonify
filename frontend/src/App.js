@@ -71,10 +71,20 @@ const WebcamMode = ({ onBack }) => {
       setIsLoading(false);
     });
     
+    // Set up escape key listener
+    const handleEscKey = (event) => {
+      if (event.key === 'Escape') {
+        onBack();
+      }
+    };
+    
+    window.addEventListener('keydown', handleEscKey);
+    
     return () => {
       cleanup();
+      window.removeEventListener('keydown', handleEscKey);
     };
-  }, []);
+  }, [onBack]);
   
   return (
     <div className="min-h-screen bg-gray-900 flex flex-col">
@@ -132,6 +142,21 @@ const ImageMode = ({ onBack }) => {
   const [isProcessing, setIsProcessing] = useState(false);
   const [processedData, setProcessedData] = useState(null);
   const fileInputRef = useRef(null);
+  
+  useEffect(() => {
+    // Set up escape key listener
+    const handleEscKey = (event) => {
+      if (event.key === 'Escape') {
+        onBack();
+      }
+    };
+    
+    window.addEventListener('keydown', handleEscKey);
+    
+    return () => {
+      window.removeEventListener('keydown', handleEscKey);
+    };
+  }, [onBack]);
   
   const handleFileChange = async (e) => {
     const file = e.target.files[0];
@@ -241,6 +266,21 @@ const VideoMode = ({ onBack }) => {
   const [processedData, setProcessedData] = useState(null);
   const [progress, setProgress] = useState(0);
   const fileInputRef = useRef(null);
+  
+  useEffect(() => {
+    // Set up escape key listener
+    const handleEscKey = (event) => {
+      if (event.key === 'Escape') {
+        onBack();
+      }
+    };
+    
+    window.addEventListener('keydown', handleEscKey);
+    
+    return () => {
+      window.removeEventListener('keydown', handleEscKey);
+    };
+  }, [onBack]);
   
   const handleFileChange = async (e) => {
     const file = e.target.files[0];
