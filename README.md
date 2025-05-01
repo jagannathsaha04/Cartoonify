@@ -16,8 +16,7 @@ A full-stack AI-powered web application that cartoonifies images, videos, and li
 
 ## 🚀 Live Demo
 
-Frontend: [https://your-frontend.vercel.app](https://your-frontend.vercel.app)  
-Backend API: [https://your-backend.vercel.app](https://your-backend.vercel.app)
+Soon
 
 ---
 
