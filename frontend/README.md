@@ -105,5 +105,5 @@ Ensure API URLs in `frontend/src/api.js` point to your deployed backend URL.
 
 ## 🙌 Acknowledgements
 
-- Built with ❤️ by [Your Name](https://github.com/jagannathsaha-4)
+- Built with ❤️ by [Jagannath Saha](https://github.com/jagannathsaha-4)
 - Powered by OpenCV, Flask, React, Tailwind CSS
